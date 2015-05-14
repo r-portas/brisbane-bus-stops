@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="//rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="//rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="//birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_8c614825d93c418883fc972e653ddac1" style="width: 1400px; height: 900px"></div>
+
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_8c614825d93c418883fc972e653ddac1', {
+                                       center:[-27.4432654997, 152.987245],
+                                       zoom: 15,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+      var marker_1_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_1 = L.marker([-27.4377960002, 
+							152.983399],
+							{'icon':marker_1_icon}
+							);
+      marker_1.bindPopup("Canberra Dr");
+      marker_1._popup.options.maxWidth = 300;
+      map.addLayer(marker_1)
+      
+      var marker_2_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_2 = L.marker([-27.440121, 
+							152.99751],
+							{'icon':marker_2_icon}
+							);
+      marker_2.bindPopup("Ashgrove Av");
+      marker_2._popup.options.maxWidth = 300;
+      map.addLayer(marker_2)
+      
+      var marker_3_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_3 = L.marker([-27.4379619997, 
+							152.999954],
+							{'icon':marker_3_icon}
+							);
+      marker_3.bindPopup("Ashgrove Av");
+      marker_3._popup.options.maxWidth = 300;
+      map.addLayer(marker_3)
+      
+      var marker_4_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_4 = L.marker([-27.4425030004, 
+							152.979246],
+							{'icon':marker_4_icon}
+							);
+      marker_4.bindPopup("Grevillea Rd");
+      marker_4._popup.options.maxWidth = 300;
+      map.addLayer(marker_4)
+      
+      var marker_5_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_5 = L.marker([-27.44543, 
+							152.980018],
+							{'icon':marker_5_icon}
+							);
+      marker_5.bindPopup("Glenlyon Dr");
+      marker_5._popup.options.maxWidth = 300;
+      map.addLayer(marker_5)
+      
+      var marker_6_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_6 = L.marker([-27.4352179997, 
+							152.983722],
+							{'icon':marker_6_icon}
+							);
+      marker_6.bindPopup("Canberra Dr");
+      marker_6._popup.options.maxWidth = 300;
+      map.addLayer(marker_6)
+      
+      var marker_7_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_7 = L.marker([-27.4445180002, 
+							152.993798],
+							{'icon':marker_7_icon}
+							);
+      marker_7.bindPopup("Ashgrove Av");
+      marker_7._popup.options.maxWidth = 300;
+      map.addLayer(marker_7)
+      
+      var marker_8_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_8 = L.marker([-27.4485129997, 
+							152.968716],
+							{'icon':marker_8_icon}
+							);
+      marker_8.bindPopup("Waterworks Rd");
+      marker_8._popup.options.maxWidth = 300;
+      map.addLayer(marker_8)
+      
+      var marker_9_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_9 = L.marker([-27.4316429998, 
+							152.993976],
+							{'icon':marker_9_icon}
+							);
+      marker_9.bindPopup("Banks St");
+      marker_9._popup.options.maxWidth = 300;
+      map.addLayer(marker_9)
+      
+      var marker_10_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_10 = L.marker([-27.4377579996, 
+							153.00012],
+							{'icon':marker_10_icon}
+							);
+      marker_10.bindPopup("Ashgrove Av");
+      marker_10._popup.options.maxWidth = 300;
+      map.addLayer(marker_10)
+      
+      var marker_11_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_11 = L.marker([-27.4519290004, 
+							152.976368],
+							{'icon':marker_11_icon}
+							);
+      marker_11.bindPopup("Davies Rd");
+      marker_11._popup.options.maxWidth = 300;
+      map.addLayer(marker_11)
+      
+      var marker_12_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_12 = L.marker([-27.4530209999, 
+							152.97521],
+							{'icon':marker_12_icon}
+							);
+      marker_12.bindPopup("Davies Rd");
+      marker_12._popup.options.maxWidth = 300;
+      map.addLayer(marker_12)
+      
+      var marker_13_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_13 = L.marker([-27.454757, 
+							152.975741],
+							{'icon':marker_13_icon}
+							);
+      marker_13.bindPopup("Davies Rd");
+      marker_13._popup.options.maxWidth = 300;
+      map.addLayer(marker_13)
+      
+      var marker_14_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_14 = L.marker([-27.4485980004, 
+							152.99976],
+							{'icon':marker_14_icon}
+							);
+      marker_14.bindPopup("Waterworks Rd");
+      marker_14._popup.options.maxWidth = 300;
+      map.addLayer(marker_14)
+      
+      var marker_15_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_15 = L.marker([-27.4456340001, 
+							152.994396],
+							{'icon':marker_15_icon}
+							);
+      marker_15.bindPopup("Waterworks Rd");
+      marker_15._popup.options.maxWidth = 300;
+      map.addLayer(marker_15)
+      
+      var marker_16_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_16 = L.marker([-27.4455680004, 
+							152.992832],
+							{'icon':marker_16_icon}
+							);
+      marker_16.bindPopup("Waterworks Rd");
+      marker_16._popup.options.maxWidth = 300;
+      map.addLayer(marker_16)
+      
+      var marker_17_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_17 = L.marker([-27.4459380003, 
+							152.997025],
+							{'icon':marker_17_icon}
+							);
+      marker_17.bindPopup("Waterworks Rd");
+      marker_17._popup.options.maxWidth = 300;
+      map.addLayer(marker_17)
+      
+      var marker_18_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_18 = L.marker([-27.4548879997, 
+							152.975838],
+							{'icon':marker_18_icon}
+							);
+      marker_18.bindPopup("Davies Rd");
+      marker_18._popup.options.maxWidth = 300;
+      map.addLayer(marker_18)
+      
+      var marker_19_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_19 = L.marker([-27.4402360003, 
+							152.990052],
+							{'icon':marker_19_icon}
+							);
+      marker_19.bindPopup("Stewart Rd");
+      marker_19._popup.options.maxWidth = 300;
+      map.addLayer(marker_19)
+      
+      var marker_20_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_20 = L.marker([-27.4444259998, 
+							152.993912],
+							{'icon':marker_20_icon}
+							);
+      marker_20.bindPopup("Ashgrove Av");
+      marker_20._popup.options.maxWidth = 300;
+      map.addLayer(marker_20)
+      
+      var marker_21_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_21 = L.marker([-27.4445360002, 
+							152.992262],
+							{'icon':marker_21_icon}
+							);
+      marker_21.bindPopup("Harry St");
+      marker_21._popup.options.maxWidth = 300;
+      map.addLayer(marker_21)
+      
+      var marker_22_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_22 = L.marker([-27.4433220003, 
+							152.994197],
+							{'icon':marker_22_icon}
+							);
+      marker_22.bindPopup("Ashgrove Av");
+      marker_22._popup.options.maxWidth = 300;
+      map.addLayer(marker_22)
+      
+      var marker_23_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_23 = L.marker([-27.4421719998, 
+							152.995694],
+							{'icon':marker_23_icon}
+							);
+      marker_23.bindPopup("Ashgrove Av");
+      marker_23._popup.options.maxWidth = 300;
+      map.addLayer(marker_23)
+      
+      var marker_24_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_24 = L.marker([-27.4376729996, 
+							153.003375],
+							{'icon':marker_24_icon}
+							);
+      marker_24.bindPopup("Ashgrove Av");
+      marker_24._popup.options.maxWidth = 300;
+      map.addLayer(marker_24)
+      
+      var marker_25_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_25 = L.marker([-27.442576, 
+							152.979867],
+							{'icon':marker_25_icon}
+							);
+      marker_25.bindPopup("Grevillea Rd");
+      marker_25._popup.options.maxWidth = 300;
+      map.addLayer(marker_25)
+      
+      var marker_26_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_26 = L.marker([-27.4381510002, 
+							153.005774],
+							{'icon':marker_26_icon}
+							);
+      marker_26.bindPopup("Ashgrove Av");
+      marker_26._popup.options.maxWidth = 300;
+      map.addLayer(marker_26)
+      
+      var marker_27_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_27 = L.marker([-27.4379099998, 
+							153.004084],
+							{'icon':marker_27_icon}
+							);
+      marker_27.bindPopup("Ashgrove Av");
+      marker_27._popup.options.maxWidth = 300;
+      map.addLayer(marker_27)
+      
+      var marker_28_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_28 = L.marker([-27.4376649997, 
+							153.002322],
+							{'icon':marker_28_icon}
+							);
+      marker_28.bindPopup("Ashgrove Av");
+      marker_28._popup.options.maxWidth = 300;
+      map.addLayer(marker_28)
+      
+      var marker_29_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_29 = L.marker([-27.4394370003, 
+							152.998202],
+							{'icon':marker_29_icon}
+							);
+      marker_29.bindPopup("Ashgrove Av");
+      marker_29._popup.options.maxWidth = 300;
+      map.addLayer(marker_29)
+      
+      var marker_30_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_30 = L.marker([-27.4423749998, 
+							152.995534],
+							{'icon':marker_30_icon}
+							);
+      marker_30.bindPopup("Ashgrove Av");
+      marker_30._popup.options.maxWidth = 300;
+      map.addLayer(marker_30)
+      
+      var marker_31_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_31 = L.marker([-27.450166, 
+							152.977441],
+							{'icon':marker_31_icon}
+							);
+      marker_31.bindPopup("Coopers Camp Rd");
+      marker_31._popup.options.maxWidth = 300;
+      map.addLayer(marker_31)
+      
+      var marker_32_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_32 = L.marker([-27.4535890004, 
+							152.975122],
+							{'icon':marker_32_icon}
+							);
+      marker_32.bindPopup("Davies Rd");
+      marker_32._popup.options.maxWidth = 300;
+      map.addLayer(marker_32)
+      
+      var marker_33_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_33 = L.marker([-27.4519629996, 
+							152.976255],
+							{'icon':marker_33_icon}
+							);
+      marker_33.bindPopup("Davies Rd");
+      marker_33._popup.options.maxWidth = 300;
+      map.addLayer(marker_33)
+      
+      var marker_34_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_34 = L.marker([-27.4494720001, 
+							152.977329],
+							{'icon':marker_34_icon}
+							);
+      marker_34.bindPopup("Coopers Camp Rd");
+      marker_34._popup.options.maxWidth = 300;
+      map.addLayer(marker_34)
+      
+      var marker_35_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_35 = L.marker([-27.4459519997, 
+							152.987444],
+							{'icon':marker_35_icon}
+							);
+      marker_35.bindPopup("Waterworks Rd");
+      marker_35._popup.options.maxWidth = 300;
+      map.addLayer(marker_35)
+      
+      var marker_36_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_36 = L.marker([-27.447249, 
+							152.984196],
+							{'icon':marker_36_icon}
+							);
+      marker_36.bindPopup("Waterworks Rd");
+      marker_36._popup.options.maxWidth = 300;
+      map.addLayer(marker_36)
+      
+      var marker_37_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_37 = L.marker([-27.4480270005, 
+							152.981621],
+							{'icon':marker_37_icon}
+							);
+      marker_37.bindPopup("Waterworks Rd");
+      marker_37._popup.options.maxWidth = 300;
+      map.addLayer(marker_37)
+      
+      var marker_38_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_38 = L.marker([-27.4483539996, 
+							152.97951],
+							{'icon':marker_38_icon}
+							);
+      marker_38.bindPopup("Waterworks Rd");
+      marker_38._popup.options.maxWidth = 300;
+      map.addLayer(marker_38)
+      
+      var marker_39_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_39 = L.marker([-27.4492119997, 
+							152.977943],
+							{'icon':marker_39_icon}
+							);
+      marker_39.bindPopup("Waterworks Rd");
+      marker_39._popup.options.maxWidth = 300;
+      map.addLayer(marker_39)
+      
+      var marker_40_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_40 = L.marker([-27.4482569997, 
+							152.974523],
+							{'icon':marker_40_icon}
+							);
+      marker_40.bindPopup("Waterworks Rd");
+      marker_40._popup.options.maxWidth = 300;
+      map.addLayer(marker_40)
+      
+      var marker_41_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_41 = L.marker([-27.4482800004, 
+							152.971939],
+							{'icon':marker_41_icon}
+							);
+      marker_41.bindPopup("Waterworks Rd");
+      marker_41._popup.options.maxWidth = 300;
+      map.addLayer(marker_41)
+      
+      var marker_42_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_42 = L.marker([-27.4427710004, 
+							152.983383],
+							{'icon':marker_42_icon}
+							);
+      marker_42.bindPopup("Girraween Cr");
+      marker_42._popup.options.maxWidth = 300;
+      map.addLayer(marker_42)
+      
+      var marker_43_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_43 = L.marker([-27.4443590002, 
+							152.98717],
+							{'icon':marker_43_icon}
+							);
+      marker_43.bindPopup("Aloomba Rd");
+      marker_43._popup.options.maxWidth = 300;
+      map.addLayer(marker_43)
+      
+      var marker_44_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_44 = L.marker([-27.4328350002, 
+							152.988945],
+							{'icon':marker_44_icon}
+							);
+      marker_44.bindPopup("Wardell St");
+      marker_44._popup.options.maxWidth = 300;
+      map.addLayer(marker_44)
+      
+      var marker_45_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_45 = L.marker([-27.4356329996, 
+							152.9884],
+							{'icon':marker_45_icon}
+							);
+      marker_45.bindPopup("Wardell St");
+      marker_45._popup.options.maxWidth = 300;
+      map.addLayer(marker_45)
+      
+      var marker_46_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_46 = L.marker([-27.4462960004, 
+							152.973374001],
+							{'icon':marker_46_icon}
+							);
+      marker_46.bindPopup("Piddington St");
+      marker_46._popup.options.maxWidth = 300;
+      map.addLayer(marker_46)
+      
+      var marker_47_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_47 = L.marker([-27.4485689998, 
+							152.989502],
+							{'icon':marker_47_icon}
+							);
+      marker_47.bindPopup("Jubilee Tce");
+      marker_47._popup.options.maxWidth = 300;
+      map.addLayer(marker_47)
+      
+      var marker_48_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_48 = L.marker([-27.4343150003, 
+							152.985803],
+							{'icon':marker_48_icon}
+							);
+      marker_48.bindPopup("Victoria St");
+      marker_48._popup.options.maxWidth = 300;
+      map.addLayer(marker_48)
+      
+      var marker_49_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_49 = L.marker([-27.4402480003, 
+							152.989951],
+							{'icon':marker_49_icon}
+							);
+      marker_49.bindPopup("Stewart Rd");
+      marker_49._popup.options.maxWidth = 300;
+      map.addLayer(marker_49)
+      
+      var marker_50_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_50 = L.marker([-27.4350970001, 
+							152.988349],
+							{'icon':marker_50_icon}
+							);
+      marker_50.bindPopup("Wardell St");
+      marker_50._popup.options.maxWidth = 300;
+      map.addLayer(marker_50)
+      
+      var marker_51_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_51 = L.marker([-27.4378840002, 
+							152.98183],
+							{'icon':marker_51_icon}
+							);
+      marker_51.bindPopup("Frasers Rd");
+      marker_51._popup.options.maxWidth = 300;
+      map.addLayer(marker_51)
+      
+      var marker_52_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_52 = L.marker([-27.4389620003, 
+							152.981144],
+							{'icon':marker_52_icon}
+							);
+      marker_52.bindPopup("Arinya Rd");
+      marker_52._popup.options.maxWidth = 300;
+      map.addLayer(marker_52)
+      
+      var marker_53_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_53 = L.marker([-27.4404860002, 
+							152.983615],
+							{'icon':marker_53_icon}
+							);
+      marker_53.bindPopup("Arinya Rd");
+      marker_53._popup.options.maxWidth = 300;
+      map.addLayer(marker_53)
+      
+      var marker_54_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_54 = L.marker([-27.4427960001, 
+							152.98359],
+							{'icon':marker_54_icon}
+							);
+      marker_54.bindPopup("Girraween Cr");
+      marker_54._popup.options.maxWidth = 300;
+      map.addLayer(marker_54)
+      
+      var marker_55_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_55 = L.marker([-27.4451520002, 
+							152.980037],
+							{'icon':marker_55_icon}
+							);
+      marker_55.bindPopup("Glenlyon Dr");
+      marker_55._popup.options.maxWidth = 300;
+      map.addLayer(marker_55)
+      
+      var marker_56_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_56 = L.marker([-27.4411789998, 
+							152.99021],
+							{'icon':marker_56_icon}
+							);
+      marker_56.bindPopup("Stewart Rd");
+      marker_56._popup.options.maxWidth = 300;
+      map.addLayer(marker_56)
+      
+      var marker_57_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_57 = L.marker([-27.4442940004, 
+							152.991501],
+							{'icon':marker_57_icon}
+							);
+      marker_57.bindPopup("Waterworks Rd");
+      marker_57._popup.options.maxWidth = 300;
+      map.addLayer(marker_57)
+      
+      var marker_58_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_58 = L.marker([-27.4389960003, 
+							152.980862],
+							{'icon':marker_58_icon}
+							);
+      marker_58.bindPopup("Arinya Rd");
+      marker_58._popup.options.maxWidth = 300;
+      map.addLayer(marker_58)
+      
+      var marker_59_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_59 = L.marker([-27.437784, 
+							152.981841],
+							{'icon':marker_59_icon}
+							);
+      marker_59.bindPopup("Frasers Rd");
+      marker_59._popup.options.maxWidth = 300;
+      map.addLayer(marker_59)
+      
+      var marker_60_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_60 = L.marker([-27.43836, 
+							152.985518],
+							{'icon':marker_60_icon}
+							);
+      marker_60.bindPopup("Frasers Rd");
+      marker_60._popup.options.maxWidth = 300;
+      map.addLayer(marker_60)
+      
+      var marker_61_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_61 = L.marker([-27.4372580003, 
+							152.983356],
+							{'icon':marker_61_icon}
+							);
+      marker_61.bindPopup("Canberra Dr");
+      marker_61._popup.options.maxWidth = 300;
+      map.addLayer(marker_61)
+      
+      var marker_62_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_62 = L.marker([-27.4350870003, 
+							152.983631],
+							{'icon':marker_62_icon}
+							);
+      marker_62.bindPopup("Canberra Dr");
+      marker_62._popup.options.maxWidth = 300;
+      map.addLayer(marker_62)
+      
+      var marker_63_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_63 = L.marker([-27.43418, 
+							152.985475],
+							{'icon':marker_63_icon}
+							);
+      marker_63.bindPopup("Victoria St");
+      marker_63._popup.options.maxWidth = 300;
+      map.addLayer(marker_63)
+      
+      var marker_64_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_64 = L.marker([-27.4484840003, 
+							152.968976],
+							{'icon':marker_64_icon}
+							);
+      marker_64.bindPopup("Waterworks Rd");
+      marker_64._popup.options.maxWidth = 300;
+      map.addLayer(marker_64)
+      
+      var marker_65_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_65 = L.marker([-27.4454349997, 
+							152.994236],
+							{'icon':marker_65_icon}
+							);
+      marker_65.bindPopup("Waterworks Rd");
+      marker_65._popup.options.maxWidth = 300;
+      map.addLayer(marker_65)
+      
+      var marker_66_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_66 = L.marker([-27.4454749996, 
+							152.996221],
+							{'icon':marker_66_icon}
+							);
+      marker_66.bindPopup("Waterworks Rd");
+      marker_66._popup.options.maxWidth = 300;
+      map.addLayer(marker_66)
+      
+      var marker_67_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_67 = L.marker([-27.4465680002, 
+							152.998197],
+							{'icon':marker_67_icon}
+							);
+      marker_67.bindPopup("Waterworks Rd");
+      marker_67._popup.options.maxWidth = 300;
+      map.addLayer(marker_67)
+      
+      var marker_68_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_68 = L.marker([-27.4481290003, 
+							152.999743],
+							{'icon':marker_68_icon}
+							);
+      marker_68.bindPopup("Waterworks Rd");
+      marker_68._popup.options.maxWidth = 300;
+      map.addLayer(marker_68)
+      
+      var marker_69_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_69 = L.marker([-27.4374700004, 
+							153.001706],
+							{'icon':marker_69_icon}
+							);
+      marker_69.bindPopup("Ashgrove Av");
+      marker_69._popup.options.maxWidth = 300;
+      map.addLayer(marker_69)
+      
+      var marker_70_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_70 = L.marker([-27.4481080002, 
+							152.978454],
+							{'icon':marker_70_icon}
+							);
+      marker_70.bindPopup("Glory St");
+      marker_70._popup.options.maxWidth = 300;
+      map.addLayer(marker_70)
+      
+      var marker_71_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_71 = L.marker([-27.4380089998, 
+							153.00565],
+							{'icon':marker_71_icon}
+							);
+      marker_71.bindPopup("Ashgrove Av");
+      marker_71._popup.options.maxWidth = 300;
+      map.addLayer(marker_71)
+      
+      var marker_72_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_72 = L.marker([-27.4481549996, 
+							152.971998],
+							{'icon':marker_72_icon}
+							);
+      marker_72.bindPopup("Waterworks Rd");
+      marker_72._popup.options.maxWidth = 300;
+      map.addLayer(marker_72)
+      
+      var marker_73_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_73 = L.marker([-27.446912, 
+							152.973999],
+							{'icon':marker_73_icon}
+							);
+      marker_73.bindPopup("Gresham St");
+      marker_73._popup.options.maxWidth = 300;
+      map.addLayer(marker_73)
+      
+      var marker_74_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_74 = L.marker([-27.4453260003, 
+							152.972944],
+							{'icon':marker_74_icon}
+							);
+      marker_74.bindPopup("Laird St");
+      marker_74._popup.options.maxWidth = 300;
+      map.addLayer(marker_74)
+      
+      var marker_75_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_75 = L.marker([-27.4471050003, 
+							152.974647],
+							{'icon':marker_75_icon}
+							);
+      marker_75.bindPopup("Royal Pde");
+      marker_75._popup.options.maxWidth = 300;
+      map.addLayer(marker_75)
+      
+      var marker_76_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_76 = L.marker([-27.4481179996, 
+							152.974975],
+							{'icon':marker_76_icon}
+							);
+      marker_76.bindPopup("Waterworks Rd");
+      marker_76._popup.options.maxWidth = 300;
+      map.addLayer(marker_76)
+      
+      var marker_77_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_77 = L.marker([-27.447879, 
+							152.981433],
+							{'icon':marker_77_icon}
+							);
+      marker_77.bindPopup("Waterworks Rd");
+      marker_77._popup.options.maxWidth = 300;
+      map.addLayer(marker_77)
+      
+      var marker_78_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_78 = L.marker([-27.4475070003, 
+							152.982737],
+							{'icon':marker_78_icon}
+							);
+      marker_78.bindPopup("Waterworks Rd");
+      marker_78._popup.options.maxWidth = 300;
+      map.addLayer(marker_78)
+      
+      var marker_79_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_79 = L.marker([-27.4350400004, 
+							152.985805],
+							{'icon':marker_79_icon}
+							);
+      marker_79.bindPopup("Tweed St");
+      marker_79._popup.options.maxWidth = 300;
+      map.addLayer(marker_79)
+      
+      var marker_80_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_80 = L.marker([-27.4459879996, 
+							152.990058],
+							{'icon':marker_80_icon}
+							);
+      marker_80.bindPopup("Waterworks Rd");
+      marker_80._popup.options.maxWidth = 300;
+      map.addLayer(marker_80)
+      
+      var marker_81_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_81 = L.marker([-27.4466720002, 
+							152.984762],
+							{'icon':marker_81_icon}
+							);
+      marker_81.bindPopup("Waterworks Rd");
+      marker_81._popup.options.maxWidth = 300;
+      map.addLayer(marker_81)
+      
+      var marker_82_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_82 = L.marker([-27.4457640004, 
+							152.987608],
+							{'icon':marker_82_icon}
+							);
+      marker_82.bindPopup("Waterworks Rd");
+      marker_82._popup.options.maxWidth = 300;
+      map.addLayer(marker_82)
+      
+      var marker_83_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_83 = L.marker([-27.4457100003, 
+							152.991544],
+							{'icon':marker_83_icon}
+							);
+      marker_83.bindPopup("Waterworks Rd");
+      marker_83._popup.options.maxWidth = 300;
+      map.addLayer(marker_83)
+      
+      var marker_84_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_84 = L.marker([-27.4405140003, 
+							152.983452],
+							{'icon':marker_84_icon}
+							);
+      marker_84.bindPopup("Arinya Rd");
+      marker_84._popup.options.maxWidth = 300;
+      map.addLayer(marker_84)
+      
+      var marker_85_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_85 = L.marker([-27.4452520001, 
+							152.99193],
+							{'icon':marker_85_icon}
+							);
+      marker_85.bindPopup("Waterworks Rd");
+      marker_85._popup.options.maxWidth = 300;
+      map.addLayer(marker_85)
+      
+      var marker_86_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_86 = L.marker([-27.4437920002, 
+							152.991073],
+							{'icon':marker_86_icon}
+							);
+      marker_86.bindPopup("Waterworks Rd");
+      marker_86._popup.options.maxWidth = 300;
+      map.addLayer(marker_86)
+      
+      var marker_87_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_87 = L.marker([-27.4410790001, 
+							152.99011],
+							{'icon':marker_87_icon}
+							);
+      marker_87.bindPopup("Stewart Rd");
+      marker_87._popup.options.maxWidth = 300;
+      map.addLayer(marker_87)
+      
+      var marker_88_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_88 = L.marker([-27.4318690001, 
+							152.988911],
+							{'icon':marker_88_icon}
+							);
+      marker_88.bindPopup("Wardell St");
+      marker_88._popup.options.maxWidth = 300;
+      map.addLayer(marker_88)
+      
+      var marker_89_icon = L.AwesomeMarkers.icon({ icon: 'info-sign',markerColor: 'blue',prefix: 'glyphicon',extraClasses: 'fa-rotate-0'});
+      var marker_89 = L.marker([-27.4488509996, 
+							152.977344],
+							{'icon':marker_89_icon}
+							);
+      marker_89.bindPopup("Coopers Camp Rd");
+      marker_89._popup.options.maxWidth = 300;
+      map.addLayer(marker_89)
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+   </script>
+
+</body>
